@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="movies.css" />
+    <title>Movie Tickets Online Booking</title>
+  </head>
+  <body>
+    <section class="section-movies">
+      <div class="movie-container"></div>
+    </section>
+
+    <!-- Seats -->
+    <section class="container">
+      <div class="seat-container">
+        <!-- info -->
+        <ul class="showcase">
+          <li>
+            <div class="seat"></div>
+            <small>Available</small>
+          </li>
+          <li>
+            <div class="seat unavailable"></div>
+            <small>Unavailable</small>
+          </li>
+          <li>
+            <div class="seat selected"></div>
+            <small>Selected</small>
+          </li>
+        </ul>
+
+        <div class="prime-seats">
+          <div class="area">
+            prime
+            <span></span>
+          </div>
+
+          <!-- A -->
+          <div class="rows">
+            <span class="seat-row-no">A</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+
+          <!-- B-->
+          <div class="rows">
+            <span class="seat-row-no">B</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+
+          <!-- C-->
+          <div class="rows">
+            <span class="seat-row-no">C</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+
+          <!-- D-->
+          <div class="rows">
+            <span class="seat-row-no">D</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat"></div>
+          </div>
+        </div>
+        <!-- claissic -->
+        <div class="classic-seats">
+          <div class="area">
+            Classic
+            <span></span>
+          </div>
+
+          <!-- E-->
+          <div class="rows">
+            <span class="seat-row-no">E</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+
+          <!-- F-->
+          <div class="rows">
+            <span class="seat-row-no">F</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+
+          <!--  G-->
+          <div class="rows">
+            <span class="seat-row-no">G</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+
+          <!-- H-->
+          <div class="rows">
+            <span class="seat-row-no">H</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat unavailable"></div>
+          </div>
+
+          <div class="rows">
+            <span class="seat-row-no">I</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+
+          <div class="rows">
+            <span class="seat-row-no">J</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+
+          <div class="rows">
+            <span class="seat-row-no">K</span>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+          </div>
+        </div>
+        <div class="screen">
+          <img src="curve.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!--🎫🎫  -->
+    <section class="pay-out hidden">
+      <div class="pay-out-container">
+        <div class="info">
+          <span class="total">0</span>
+          <div>
+            Tickets <span class="ticket-count">2</span> X
+            <span class="per-ticket-price">₹400</span>
+          </div>
+        </div>
+        <button class="book-button"><span>Book</span></button>
+      </div>
+    </section>
+
+    <!-- book ticket section -->
+    <section class="ticket-container hidden">
+      <span class="circle-left"></span>
+      <span class="circle-right"></span>
+      <div class="confirm-container">
+        <h2>BOOKING SUMMARY</h2>
+        <table class="first-table">
+          <tbody>
+            <tr>
+              <td class="number-of-ticket">Tickets x2</td>
+              <td class="red">₹ 347.2</td>
+            </tr>
+            <tr>
+              <td class="st1">2 Ticket(s)</td>
+              <td class="st1">₹150x2</td>
+            </tr>
+            <tr>
+              <td class="st2">Convenience fees</td>
+              <td class="st2">Rs.63.72</td>
+            </tr>
+
+            <tr>
+              <td class="bt1">Sub total</td>
+              <td class="bt1 red">Rs.963.72</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="donation-box">
+          <h5>Donation</h5>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <label for="hunger">
+                    <input type="checkbox" id="hunger" />
+                    <span>Hungerless India</span>
+                  </label>
+                </td>
+                <td>
+                  <a href="#">More info</a>
+                </td>
+                <td class="donation-price">₹2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="amount-payable">
+        <table>
+          <tbody>
+            <tr>
+              <td>Amount Payable</td>
+              <td class="total total-amount">Rs. 965.72</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button>TOTAL: <span>Rs. 965.72</span> Confirm</button>
+    </section>
+    <div class="overlay hidden"></div>
+
+    <!-- ❌❌ -->
+    <script src="script.js"></script>
+  </body>
+</html>
