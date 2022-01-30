@@ -1,0 +1,86 @@
+.login-form {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+}
+
+.admin-container {
+  width: 30rem;
+  padding: 2.4rem;
+  background-color: #191919;
+  text-align: center;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.admin-container input[type='text'],
+.admin-container input[type='password'] {
+  display: block;
+  background: none;
+  margin: 1.2rem auto;
+  border: 0;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 0.8rem 1.6rem;
+  width: 15rem;
+  outline: none;
+  color: #fff;
+  border-radius: 1.6rem;
+  transition: 0.25s;
+}
+
+.admin-container h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+}
+
+.admin-container p {
+  color: #868e96;
+  font-size: 0.8rem;
+}
+
+.error {
+  display: none;
+  font-size: 0.8rem;
+}
+
+.error.active {
+  color: #f03e3e;
+  display: block;
+}
+
+.admin-container input[type='text']:focus,
+.admin-container input[type='password']:focus {
+  border-color: #2ecc71;
+}
+
+.admin-container input:nth-of-type(2) {
+  margin-bottom: 2.4rem;
+}
+
+.admin-container input[type='submit'] {
+  display: block;
+  background: none;
+  margin: 1.2rem auto;
+  border: 0;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 1rem 2.4rem;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1.6rem;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.admin-container input[type='submit']:hover {
+  background: #2ecc71;
+}

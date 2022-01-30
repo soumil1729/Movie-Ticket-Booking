@@ -4,17 +4,108 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="movies.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
+    <link rel="stylesheet" href="./styles/seatbooking.css" />
+    <link rel="stylesheet" href="./styles/movies.css" />
+    <script defer src="./scripts/movies.js"></script>
+    <script defer src="./scripts/seats.js"></script>
+    <script defer src="./scripts/active.js"></script>
     <title>Movie Tickets Online Booking</title>
   </head>
   <body>
-    <section class="section-movies">
-      <div class="movie-container"></div>
+    <section class="login-form sections">
+      <form class="admin-container">
+        <h1>Login</h1>
+        <p>Please enter your login and password!</p>
+        <input type="text" placeholder="Username" id="username" />
+        <input type="password" placeholder="Password" id="password" />
+
+        <p class="error">Your username or password is wrong!</p>
+        <input type="submit" placeholder="Login" value="Login" id="login" />
+      </form>
+    </section>
+
+    <!-- movies -->
+    <div class="loading-animation">
+      <div class="cover cover1"></div>
+      <div class="cover cover2"></div>
+      <div class="cover cover3"></div>
+    </div>
+
+    <section class="section-movies hidden sections">
+      <div class="movies-container grid" id="movies-contianer">
+        <!-- 1 -->
+
+        <div class="movie-wrap">
+          <div class="movie">
+            <div class="movie-ratings red">9.2</div>
+            <div class="movie-front">
+              <img
+                class="thumbnail"
+                src="./images/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+                alt=""
+              />
+              <h3 class="movie-title">Spider Man home coming</h3>
+
+              <div class="movie-stats">
+                <p class="move-release-date">2021-12-15</p>
+
+                <svg class="percentage" width="100" height="100">
+                  <circle
+                    class="progress-circle"
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    stroke-dashoffset="100"
+                    fill="transparent"
+                  />
+
+                  <text
+                    class="percent-text"
+                    x="50"
+                    y="50"
+                    alignment-baseline="middle"
+                    text-anchor="middle"
+                  >
+                    83%
+                  </text>
+                </svg>
+              </div>
+            </div>
+
+            <div class="movie-back">
+              <div class="movie-info">
+                <p class="overview">
+                  Peter Parker is unmasked and no longer able to separate his
+                  normal life from the high-stakes of being a super-hero. When
+                  he asks for help from Doctor Strange the stakes become even
+                  more dangerous, forcing him to discover what it truly means to
+                  be Spider-Man.
+                </p>
+              </div>
+              <a class="btn" href="#">Book Ticket</a>
+              <div class="movie-back-stats">
+                <p class="language">Lng : <span>en</span></p>
+                <div class="movie-popularity">
+                  <ion-icon
+                    class="popularity-svg"
+                    name="happy-outline"
+                  ></ion-icon
+                  ><span
+                    >2345
+                    <ion-icon class="heart-svg" name="heart"></ion-icon>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="background"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Seats -->
-    <section class="container">
+    <section class="section-movie-seats hidden sections">
       <div class="seat-container">
         <!-- info -->
         <ul class="showcase">
@@ -189,84 +280,91 @@
           <img src="curve.png" alt="" />
         </div>
       </div>
-    </section>
 
-    <!--🎫🎫  -->
-    <section class="pay-out hidden">
-      <div class="pay-out-container">
-        <div class="info">
-          <span class="total">0</span>
-          <div>
-            Tickets <span class="ticket-count">2</span> X
-            <span class="per-ticket-price">₹400</span>
+      <!--🎫🎫  -->
+      <div class="pay-out hidden">
+        <div class="pay-out-container">
+          <div class="info">
+            <span class="total">0</span>
+            <div>
+              Tickets <span class="ticket-count">2</span> X
+              <span class="per-ticket-price">₹400</span>
+            </div>
+          </div>
+          <button class="book-button"><span>Book</span></button>
+        </div>
+      </div>
+
+      <!-- book ticket section -->
+      <div class="ticket-container hidden">
+        <span class="circle-left"></span>
+        <span class="circle-right"></span>
+        <div class="confirm-container">
+          <h2>BOOKING SUMMARY</h2>
+          <table class="first-table">
+            <tbody>
+              <tr>
+                <td class="number-of-ticket">Tickets x2</td>
+                <td class="red">₹ 347.2</td>
+              </tr>
+              <tr>
+                <td class="st1">2 Ticket(s)</td>
+                <td class="st1">₹150x2</td>
+              </tr>
+              <tr>
+                <td class="st2">Convenience fees</td>
+                <td class="st2">Rs.63.72</td>
+              </tr>
+
+              <tr>
+                <td class="bt1">Sub total</td>
+                <td class="bt1 red">Rs.963.72</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="donation-box">
+            <h5>Donation</h5>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <label for="hunger">
+                      <input type="checkbox" id="hunger" />
+                      <span>Hungerless India</span>
+                    </label>
+                  </td>
+                  <td>
+                    <a href="#">More info</a>
+                  </td>
+                  <td class="donation-price">₹2</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <button class="book-button"><span>Book</span></button>
-      </div>
-    </section>
-
-    <!-- book ticket section -->
-    <section class="ticket-container hidden">
-      <span class="circle-left"></span>
-      <span class="circle-right"></span>
-      <div class="confirm-container">
-        <h2>BOOKING SUMMARY</h2>
-        <table class="first-table">
-          <tbody>
-            <tr>
-              <td class="number-of-ticket">Tickets x2</td>
-              <td class="red">₹ 347.2</td>
-            </tr>
-            <tr>
-              <td class="st1">2 Ticket(s)</td>
-              <td class="st1">₹150x2</td>
-            </tr>
-            <tr>
-              <td class="st2">Convenience fees</td>
-              <td class="st2">Rs.63.72</td>
-            </tr>
-
-            <tr>
-              <td class="bt1">Sub total</td>
-              <td class="bt1 red">Rs.963.72</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="donation-box">
-          <h5>Donation</h5>
+        <div class="amount-payable">
           <table>
             <tbody>
               <tr>
-                <td>
-                  <label for="hunger">
-                    <input type="checkbox" id="hunger" />
-                    <span>Hungerless India</span>
-                  </label>
-                </td>
-                <td>
-                  <a href="#">More info</a>
-                </td>
-                <td class="donation-price">₹2</td>
+                <td>Amount Payable</td>
+                <td class="total total-amount">Rs. 965.72</td>
               </tr>
             </tbody>
           </table>
         </div>
+        <button>TOTAL: <span>Rs. 965.72</span> Confirm</button>
       </div>
-      <div class="amount-payable">
-        <table>
-          <tbody>
-            <tr>
-              <td>Amount Payable</td>
-              <td class="total total-amount">Rs. 965.72</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <button>TOTAL: <span>Rs. 965.72</span> Confirm</button>
+      <div class="overlay hidden"></div>
     </section>
-    <div class="overlay hidden"></div>
 
     <!-- ❌❌ -->
-    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
