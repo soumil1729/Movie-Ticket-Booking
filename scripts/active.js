@@ -9,7 +9,6 @@ const demoLogin = function () {
   const username = document.getElementById('username');
   const password = document.getElementById('password');
   const login = document.getElementById('login');
-  const form = document.querySelector('.admin-container');
   const error = document.querySelector('.error');
   login.addEventListener('click', function (e) {
     e.preventDefault();
@@ -25,31 +24,15 @@ const demoLogin = function () {
 };
 
 demoLogin();
-const cover = document.querySelector('.loading-animation');
 const sectionMovies = document.querySelector('.section-movies ');
-const moviesContainer = document.getElementById('movies-contianer');
 const loginform = document.querySelector('.login-form');
-const movieSeats = document.querySelector('.section-movie-seats');
-
-const animationTimeOut = () =>
-  setTimeout(() => cover.classList.remove('active'), 1000);
 
 function activeMovies() {
   loginform.classList.add('hidden');
-  cover.classList.add('active');
-
-  animationTimeOut();
-  setTimeout(() => {
-    sectionMovies.classList.remove('hidden');
-    addMoviestoDom();
-  }, 1100);
-
-  moviesContainer.addEventListener('click', function (e) {
-    e.preventDefault();
-    if (!e.target.classList.contains('btn')) return;
-    sectionMovies.classList.add('hidden');
-    cover.classList.add('active');
-    animationTimeOut();
-    setTimeout(() => movieSeats.classList.remove('hidden'), 1100);
-  });
+  overlayUp();
+  sectionMovies.classList.remove('hidden');
+  addMoviestoDom();
+  setTimeout(removeOverlay, 1010);
 }
+
+// activeMovies();

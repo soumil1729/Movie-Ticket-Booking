@@ -57,17 +57,6 @@ body {
 .login-form.hidden {
   transform: translateY(100%) scale(0.2, 0.9);
   display: none;
-
-  animation: scaleAnim 400ms ease-in-out;
-  @keyframes scaleAnim {
-    0% {
-      transform: translateY(100%) scale(0.2, 0.2);
-    }
-
-    100% {
-      transform: translateY(0) scale(1);
-    }
-  }
 }
 
 .grid {
@@ -343,6 +332,8 @@ a:link {
 
   .background {
     transition: var(--transition), opacity 100ms linear;
+    width: 200px;
+    height: 412px;
     opacity: 1;
     transform: scale(1.35, 1.1) translateY(5%);
   }
@@ -371,43 +362,57 @@ a:link {
     transform: scale(1.2);
   }
 }
-.loading-animation {
-  .cover {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    bottom: -100vh;
-    // z-index: 1000;
-    display: none;
+
+#overlay-effect {
+  transform: translateY(100%);
+  animation: 1s ease-in-out both;
+  background-color: #181818;
+  bottom: 0;
+  display: block;
+  position: fixed;
+  top: 0;
+  transform: translateY(100%);
+  width: 100%;
+  z-index: 99999;
+}
+
+#overlay-effect.animate-up {
+  -webkit-animation-name: overlayEffectUp;
+  animation-name: overlayEffectUp;
+}
+#overlay-effect.animate-down {
+  -webkit-animation-name: overlayEffectDown;
+  animation-name: overlayEffectDown;
+}
+
+@keyframes overlayEffectUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  35%,
+  65% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
-.loading-animation.active {
-  .cover1 {
-    display: block;
-    background: #fab005;
-    animation: slide 400ms ease-in-out forwards;
+@keyframes overlayEffectDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
   }
-
-  .cover2 {
-    display: block;
-    background: teal;
-    animation: slide 0.3s ease-in-out forwards;
-    animation-delay: 0.3s;
+  35%,
+  65% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
-  .cover3 {
-    display: block;
-    background: #222;
-    animation: slide 0.3s ease-in-out forwards;
-    animation-delay: 0.6s;
-  }
-}
-
-@keyframes slide {
-  from {
-    bottom: -100vh;
-  }
-  to {
-    bottom: 0;
+  100% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
   }
 }

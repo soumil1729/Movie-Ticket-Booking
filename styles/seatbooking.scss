@@ -38,14 +38,14 @@ body {
   position: relative;
   font-family: Lato, sans-serif;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #191a19;
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: column;
-
+  // overflow-y: scroll !important;
   animation: scaleAnim 400ms ease-in-out;
   @keyframes scaleAnim {
     0% {
@@ -67,19 +67,64 @@ body {
 }
 
 /* ------------------------ */
+/* movie banner */
+/* ------------------------ */
+.movie-banner {
+  margin-top: 1rem;
+  max-width: 100%;
+  height: 250px;
+  position: relative;
+
+  .movie-banner-img {
+    background-image: url(https://image.tmdb.org/t/p/w1280/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg);
+    width: 700px;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 3px;
+    -webkit-mask-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0, #00000095),
+      color-stop(0.35, black),
+      color-stop(0.5, black),
+      color-stop(0.65, #00000096),
+      color-stop(0.85, rgba(0, 0, 0, 0)),
+      color-stop(1, transparent)
+    );
+  }
+
+  .section-movie-seats-title {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    bottom: 4rem;
+    left: 3rem;
+    font-size: 1.4rem;
+
+    .section-movie-seats-title-date {
+      font-size: 1rem;
+      margin-left: 0.2rem;
+    }
+  }
+}
+
+/* ------------------------ */
 /* seats styling */
 /* ------------------------ */
 .showcase {
+  font-size: 1.2rem;
   background-color: rgba(68, 69, 68, 0.15);
   color: #777;
   display: flex;
   list-style: none;
   color: #fff;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  gap: 2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3em;
+  gap: 3rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  margin-top: -10px;
+  margin-bottom: 0.8rem;
 }
 
 .showcase li {
@@ -109,22 +154,28 @@ body {
   display: flex;
 }
 
-.prime-seats {
+.prime-seats,
+.classic-seats {
   text-align: center;
   margin-bottom: 0.6rem;
   position: relative;
+  font-size: 1.1rem;
+}
+
+.prime__seats-prices,
+.classic__seats-prices {
+  font-weight: bold;
 }
 
 .classic-seats {
-  text-align: center;
-  position: relative;
+  margin-bottom: 0;
 }
 
 .area {
   display: block;
   margin-bottom: 1.2rem;
   text-transform: uppercase;
-  color: #66696b;
+  color: #ccc;
 }
 
 .area:nth-of-type(2) {
@@ -132,8 +183,8 @@ body {
 }
 
 .seat {
-  width: 25.19px;
-  height: 34.04px;
+  width: 28.19px;
+  height: 36.04px;
   border-radius: 7px;
   margin-right: 0.7rem;
   -webkit-tap-highlight-color: transparent;
@@ -152,7 +203,7 @@ body {
 }
 
 .rows .seat {
-  margin-top: -0.7rem;
+  margin-top: -0.8rem;
   transform: skew(8deg);
 }
 
@@ -187,8 +238,8 @@ body {
 /* -----screen---- */
 
 .screen img {
-  height: 38px;
-  min-width: 450px;
+  height: 31px;
+  min-width: 600px;
   fill: wheat;
   border: none;
   margin-top: 2rem;
@@ -427,5 +478,3 @@ body {
 .circle-right {
   right: -10px;
 }
-
-/* responisive */

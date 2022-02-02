@@ -1,37 +1,39 @@
 'use strict';
-
 const addMoviestoDom = function () {
+  let m;
   const date = new Date();
   let [year, month, day] = [
     date.getFullYear(),
     date.getMonth(),
     date.getDate(),
   ];
-  month = month + 1 > 9 ? month + 1 : '0' + (month + 1);
-  const fromDate = `${year}-${+month > 2 ? +month - 1 : month}-${1}`;
-  console.log(fromDate);
-  const currdate = `${year}-${month}-${day}`;
+  //0 index so
+  month = month + 1;
+  month = month > 9 ? month : '0' + month;
+  const fromDate = `${year}-${+month > 1 ? '0' + (+month - 1) : month}-${
+    '0' + 1
+  }`;
+
+  const currdate = `${year}-${month}-${'0' + day}`;
 
   const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=697a7d177fc38d7f49f014df954ecffa&primary_release_date.gtecl=${fromDate}&primary_release_date.lte=${currdate}`;
   const perPendImg = 'https://image.tmdb.org/t/p/w1280';
   const SEARCH_API =
     'https://api.themoviedb.org/3/search/movie?api_key=697a7d177fc38d7f49f014df954ecffa&query="';
 
-  // console.log(API_URL);
   const moviesContainer = document.getElementById('movies-contianer');
 
   // popularity percentage
   const circle = document.querySelector('.progress-circle');
   const circumference = circle.getTotalLength();
-  console.log(circumference);
   const calProgress = function (rating) {
     return circumference - (rating / 100) * circumference;
   };
 
-  // ----updating dom movies---
+  // ----updating dom movies---//
   const showMovies = function (movies) {
     moviesContainer.innerHTML = '';
-
+    m = movies;
     const languageFullform = new Intl.DisplayNames(['en'], {
       type: 'language',
     });
@@ -45,6 +47,7 @@ const addMoviestoDom = function () {
     movies.forEach((movie) => {
       const {
         title,
+        id,
         overview,
         poster_path,
         vote_average,
@@ -62,7 +65,7 @@ const addMoviestoDom = function () {
 
       const html = `
     <div class="movie-wrap">
-        <div class="movie">
+        <div class="movie" id="${id}">
           <div class="movie-ratings ${getClassbyRate(
             vote_average
           )}">${vote_average}</div>
@@ -124,13 +127,34 @@ const addMoviestoDom = function () {
     });
   };
 
+  const movieSeats = document.querySelector('.section-movie-seats');
+  const gotoBookigSeats = function (movies) {
+    moviesContainer.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      if (!e.target.classList.contains('btn')) return;
+      const Movieid = e.target.closest('.movie').id;
+      console.log(movies);
+      let [{ backdrop_path, title, release_date, popularity }] = movies.filter(
+        (movie) => movie.id === +Movieid
+      );
+
+      backdrop_path = perPendImg + backdrop_path;
+      sectionMovies.classList.add('hidden');
+      renderSeats(backdrop_path, title, release_date, popularity.toString());
+      overlayUp();
+      movieSeats.classList.remove('hidden');
+    });
+  };
+
   //loading API
   const fetchMovies = async function (url) {
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data.results);
+    gotoBookigSeats(data.results);
     showMovies(data.results);
   };
+
   fetchMovies(API_URL);
 };
 

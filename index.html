@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="./styles/login.css" />
     <link rel="stylesheet" href="./styles/seatbooking.css" />
     <link rel="stylesheet" href="./styles/movies.css" />
-    <script defer src="./scripts/movies.js"></script>
     <script defer src="./scripts/seats.js"></script>
+    <script defer src="./scripts/movies.js"></script>
     <script defer src="./scripts/active.js"></script>
     <title>Movie Tickets Online Booking</title>
   </head>
   <body>
+    <div id="overlay-effect" class=""></div>
     <section class="login-form sections">
       <form class="admin-container">
         <h1>Login</h1>
@@ -26,12 +27,6 @@
     </section>
 
     <!-- movies -->
-    <div class="loading-animation">
-      <div class="cover cover1"></div>
-      <div class="cover cover2"></div>
-      <div class="cover cover3"></div>
-    </div>
-
     <section class="section-movies hidden sections">
       <div class="movies-container grid" id="movies-contianer">
         <!-- 1 -->
@@ -106,6 +101,13 @@
 
     <!-- Seats -->
     <section class="section-movie-seats hidden sections">
+      <div class="movie-banner">
+        <div class="movie-banner-img"></div>
+        <div class="moive-info">
+          <p class="section-movie-seats-title"></p>
+        </div>
+      </div>
+
       <div class="seat-container">
         <!-- info -->
         <ul class="showcase">
@@ -126,7 +128,7 @@
         <div class="prime-seats">
           <div class="area">
             prime
-            <span></span>
+            <span class="prime__seats-prices"></span>
           </div>
 
           <!-- A -->
@@ -185,7 +187,7 @@
         <div class="classic-seats">
           <div class="area">
             Classic
-            <span></span>
+            <span class="classic__seats-prices"></span>
           </div>
 
           <!-- E-->
@@ -304,21 +306,27 @@
           <table class="first-table">
             <tbody>
               <tr>
-                <td class="number-of-ticket">Tickets x2</td>
-                <td class="red">₹ 347.2</td>
+                <td class="number-of-ticket" id="booking__ticket-numbers">
+                  Tickets x2
+                </td>
+                <td class="red" id="booking__total-price">₹ 347.2</td>
               </tr>
               <tr>
-                <td class="st1">2 Ticket(s)</td>
-                <td class="st1">₹150x2</td>
+                <td class="st1 =" id="number__of-tickets">2 Ticket(s)</td>
+                <td class="st1" id="prime__classic-tickets">
+                  <!-- <span id="booking__prime-tickets"> ₹150x2 </span><br />
+                  <span id="booking__classic-tickets">₹150x2 </span> -->
+                </td>
               </tr>
               <tr>
                 <td class="st2">Convenience fees</td>
-                <td class="st2">Rs.63.72</td>
+                <br />
+                <td class="st2" id="booking__convenience__fees">Rs.63.72</td>
               </tr>
 
               <tr>
                 <td class="bt1">Sub total</td>
-                <td class="bt1 red">Rs.963.72</td>
+                <td class="bt1 red" id="booking__Subtotal">Rs.963.72</td>
               </tr>
             </tbody>
           </table>
@@ -329,7 +337,11 @@
                 <tr>
                   <td>
                     <label for="hunger">
-                      <input type="checkbox" id="hunger" />
+                      <input
+                        type="checkbox"
+                        id="donation__hunger"
+                        onchange="addtwo()"
+                      />
                       <span>Hungerless India</span>
                     </label>
                   </td>
@@ -347,12 +359,16 @@
             <tbody>
               <tr>
                 <td>Amount Payable</td>
-                <td class="total total-amount">Rs. 965.72</td>
+                <td class="total total-amount" id="booking__amount-payable">
+                  Rs. 965.72
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <button>TOTAL: <span>Rs. 965.72</span> Confirm</button>
+        <button>
+          TOTAL: Rs. <span id="booking_btn_total">965.72</span> Confirm
+        </button>
       </div>
       <div class="overlay hidden"></div>
     </section>
