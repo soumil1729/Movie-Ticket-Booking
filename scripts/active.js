@@ -35,4 +35,45 @@ function activeMovies() {
   setTimeout(removeOverlay, 1010);
 }
 
+const goBack = () => {
+  sectionMovies.classList.remove('hidden');
+  movieSeats.classList.add('hidden');
+
+  document
+    .querySelectorAll('.prime-seats .rows .seat.selected')
+    .forEach((el) => el.classList.remove('selected'));
+  document
+    .querySelectorAll('.classic-seats .rows .seat.selected')
+    .forEach((el) => el.classList.remove('selected'));
+  payoutBtn.classList.remove('active');
+  contianer.removeEventListener('click', onClickcAddSeats);
+  // moviesContainer.removeEventListener('click', goToseats);
+  ticketContainer.classList.remove('active');
+  overlayseats.classList.add('hidden');
+  overlayDown();
+};
+const bookingBtn = document.getElementById('booking-button');
+// booking btn in seats js
+bookingBtn.addEventListener('click', function (e) {
+  bookingBtn.classList.add('button-loading');
+
+  setTimeout(() => {
+    bookingBtn.classList.remove('button-loading');
+    bookingBtn.classList.add('button-done');
+  }, 2500);
+
+  setTimeout(() => {
+    // overlayDown();
+    bookingBtn.classList.remove('button-done');
+    goBack();
+  }, 4000);
+});
+
 // activeMovies();
+
+//back to movies
+const backtoMovies = document.querySelector('.section__seats-back-icon');
+backtoMovies.addEventListener('click', function () {
+  if (!confirm('All your progress will be lost')) return;
+  goBack();
+});

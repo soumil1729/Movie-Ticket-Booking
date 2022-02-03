@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap");
 :root {
   --selected-seats: linear-gradient(0deg, #ffce26, #ffce26, #ffce26, #ff0);
@@ -303,8 +304,8 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
   -webkit-transform: translate(-50%, 100%);
           transform: translate(-50%, 100%);
   opacity: 1;
@@ -318,6 +319,8 @@ body {
   pointer-events: all;
   -webkit-transform: translate(-50%, -5%);
           transform: translate(-50%, -5%);
+  -webkit-transition: 250ms;
+  transition: 250ms;
 }
 
 .book-button {
@@ -370,6 +373,21 @@ body {
 
 .overlay.hidden {
   display: none;
+}
+
+.ticket__close-svg {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.6rem;
+  color: #ccc;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.ticket__close-svg:hover,
+.ticket__close-svg:active {
+  color: #eee;
 }
 
 /* ------------------------ */
@@ -508,17 +526,79 @@ body {
 
 /* button */
 .ticket-container button {
+  position: relative;
   width: 100%;
-  font-size: 17px;
-  letter-spacing: 0.02em;
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1.2rem;
   background: #f84464;
-  color: #fff;
   border: 0;
   border-radius: 0.5em;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  cursor: pointer;
+  -webkit-transition: background-color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, box-shadow 250ms ease;
+  transition: background-color 250ms ease, box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
+}
+
+.ticket-container button .button-text {
+  font-size: 17px;
   font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.ticket-container button:hover,
+.ticket-container button:active {
+  background-color: #c63650;
+}
+
+.ticket-container button:active {
+  -webkit-box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.button-loading .button-text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button-loading {
+  background-color: #0ca678 !important;
+}
+
+.button-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-image: url(../images/Infinity-1s-200px1.svg);
+  width: 70px;
+  height: 70px;
+}
+
+.button-done {
+  background-color: #0ca678 !important;
+}
+
+.button-done .button-text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button-done::after {
+  content: '✓ Ticket booked 🎉';
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 .circle-left,
@@ -538,5 +618,21 @@ body {
 
 .circle-right {
   right: -10px;
+}
+
+.section__seats-back-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  color: #ddd;
+  cursor: pointer;
+  -webkit-transition: color 250ms;
+  transition: color 250ms;
+}
+
+.section__seats-back-icon:hover,
+.section__seats-back-icon:active {
+  color: #fff;
 }
 /*# sourceMappingURL=seatbooking.css.map */

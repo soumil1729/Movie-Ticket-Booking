@@ -1,4 +1,9 @@
 'use strict';
+// global
+const movieSeats = document.querySelector('.section-movie-seats');
+const moviesContainer = document.getElementById('movies-contianer');
+
+let goToseats;
 const addMoviestoDom = function () {
   let m;
   const date = new Date();
@@ -20,8 +25,6 @@ const addMoviestoDom = function () {
   const perPendImg = 'https://image.tmdb.org/t/p/w1280';
   const SEARCH_API =
     'https://api.themoviedb.org/3/search/movie?api_key=697a7d177fc38d7f49f014df954ecffa&query="';
-
-  const moviesContainer = document.getElementById('movies-contianer');
 
   // popularity percentage
   const circle = document.querySelector('.progress-circle');
@@ -127,14 +130,14 @@ const addMoviestoDom = function () {
     });
   };
 
-  const movieSeats = document.querySelector('.section-movie-seats');
+  //rendering seats 3rd screen
   const gotoBookigSeats = function (movies) {
-    moviesContainer.addEventListener('click', function (e) {
+    goToseats = function (e) {
       e.preventDefault();
 
       if (!e.target.classList.contains('btn')) return;
       const Movieid = e.target.closest('.movie').id;
-      console.log(movies);
+      // console.log(movies);
       let [{ backdrop_path, title, release_date, popularity }] = movies.filter(
         (movie) => movie.id === +Movieid
       );
@@ -144,7 +147,9 @@ const addMoviestoDom = function () {
       renderSeats(backdrop_path, title, release_date, popularity.toString());
       overlayUp();
       movieSeats.classList.remove('hidden');
-    });
+    };
+
+    moviesContainer.addEventListener('click', goToseats);
   };
 
   //loading API

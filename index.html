@@ -10,6 +10,15 @@
     <script defer src="./scripts/seats.js"></script>
     <script defer src="./scripts/movies.js"></script>
     <script defer src="./scripts/active.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <title>Movie Tickets Online Booking</title>
   </head>
   <body>
@@ -101,6 +110,11 @@
 
     <!-- Seats -->
     <section class="section-movie-seats hidden sections">
+      <ion-icon
+        class="section__seats-back-icon"
+        name="arrow-back-outline"
+      ></ion-icon>
+
       <div class="movie-banner">
         <div class="movie-banner-img"></div>
         <div class="moive-info">
@@ -366,11 +380,18 @@
             </tbody>
           </table>
         </div>
-        <button>
-          TOTAL: Rs. <span id="booking_btn_total">965.72</span> Confirm
+        <button class="" id="booking-button">
+          <span class="button-text"
+            >TOTAL: Rs. <span id="booking_btn_total">965.72</span> Confirm</span
+          >
         </button>
       </div>
-      <div class="overlay hidden"></div>
+      <div class="overlay hidden">
+        <ion-icon
+          class="ticket__close-svg"
+          name="close-circle-outline"
+        ></ion-icon>
+      </div>
     </section>
 
     <!-- ❌❌ -->

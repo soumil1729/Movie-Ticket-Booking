@@ -263,8 +263,7 @@ body {
   display: flex;
   align-content: center;
   justify-content: space-evenly;
-  transition: all 200ms ease-in-out;
-
+  transition: all 250ms ease-in-out;
   transform: translate(-50%, 100%);
 
   opacity: 1;
@@ -277,6 +276,7 @@ body {
   visibility: visible;
   pointer-events: all;
   transform: translate(-50%, -5%);
+  transition: 250ms;
 }
 
 .book-button {
@@ -318,6 +318,20 @@ body {
   display: none;
 }
 
+.ticket__close-svg {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.6rem;
+  color: #ccc;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.ticket__close-svg:hover,
+.ticket__close-svg:active {
+  color: #eee;
+}
 /* ------------------------ */
 /* BOOKING-summary */
 /* ------------------------ */
@@ -448,20 +462,78 @@ body {
 
 /* button */
 .ticket-container button {
-  width: 100%;
-  font-size: 17px;
-  letter-spacing: 0.02em;
-  padding: 0.6rem 1rem;
-  background: #f84464;
+  position: relative;
 
-  color: #fff;
+  width: 100%;
+  padding: 0.7rem 1.2rem;
+  background: #f84464;
   border: 0;
   border-radius: 0.5em;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 250ms ease, box-shadow 250ms ease;
+
+  .button-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
 }
 
+.ticket-container button:hover,
+.ticket-container button:active {
+  background-color: #c63650;
+}
+
+.ticket-container button:active {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+// button animations
+.button-loading .button-text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button-loading {
+  background-color: #0ca678 !important;
+}
+
+.button-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../images/Infinity-1s-200px1.svg);
+  width: 70px;
+  height: 70px;
+}
+
+.button-done {
+  background-color: #0ca678 !important;
+}
+
+.button-done .button-text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button-done::after {
+  content: '✓ Ticket booked 🎉';
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+// circle on the bith side of the ticket
 .circle-left,
 .circle-right {
   display: inline-block;
@@ -477,4 +549,20 @@ body {
 }
 .circle-right {
   right: -10px;
+}
+
+// back to movies
+.section__seats-back-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 250ms;
+}
+
+.section__seats-back-icon:hover,
+.section__seats-back-icon:active {
+  color: #fff;
 }

@@ -37,8 +37,8 @@ body {
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
   display: block;
-  -webkit-animation: scaleAnim 400ms ease-in-out;
-          animation: scaleAnim 400ms ease-in-out;
+  -webkit-animation: scaleAnim 400ms ease-in;
+          animation: scaleAnim 400ms ease-in;
 }
 
 @-webkit-keyframes scaleAnim {
@@ -168,8 +168,10 @@ a:link {
 /* Movies Front container  */
 /* ------------------------ */
 .movie-front {
-  -webkit-transition: 250ms;
-  transition: 250ms;
+  -webkit-transition: -webkit-transform 250ms;
+  transition: -webkit-transform 250ms;
+  transition: transform 250ms;
+  transition: transform 250ms, -webkit-transform 250ms;
 }
 
 .movie-front .thumbnail {

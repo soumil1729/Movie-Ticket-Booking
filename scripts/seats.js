@@ -4,6 +4,8 @@ const overlay = document.getElementById('overlay-effect');
 const overlayUp = () => (overlay.className = 'animate-up');
 const removeOverlay = () => (overlay.className = '');
 const overlayDown = () => (overlay.className = 'animate-down');
+let onClickcAddSeats;
+const ticketContainer = document.querySelector('.ticket-container');
 
 let totalBookingAmountPayable = 0;
 const checkboxDonation = document.getElementById('donation__hunger');
@@ -11,6 +13,10 @@ const bookingAmountPayable = document.getElementById('booking__amount-payable');
 const bookingButtonTotal = document.getElementById('booking_btn_total');
 
 // 🪑🪑🪑
+const payoutBtn = document.querySelector('.pay-out-container');
+const contianer = document.querySelector('.seat-container');
+const overlayseats = document.querySelector('.overlay');
+
 function renderSeats(movieImg, title, release_date, dummyPrice = '3000') {
   const primeSeats = document.querySelectorAll(
     '.prime-seats .rows .seat:not(.unavailable)'
@@ -18,13 +24,9 @@ function renderSeats(movieImg, title, release_date, dummyPrice = '3000') {
   const classicSeats = document.querySelectorAll(
     '.classic-seats .rows .seat:not(.unavailable)'
   );
-  const contianer = document.querySelector('.seat-container');
-  const payoutBtn = document.querySelector('.pay-out-container');
   const count = document.querySelector('.ticket-count');
   const total = document.querySelector('.total');
-  const ticketContainer = document.querySelector('.ticket-container');
   const book = document.querySelector('.book-button');
-  const overlayseats = document.querySelector('.overlay');
   const movieBanner = document.querySelector('.movie-banner-img');
   const movieTitle = document.querySelector('.section-movie-seats-title');
   const primeSeatsPrices = document.querySelector('.prime__seats-prices');
@@ -71,7 +73,7 @@ function renderSeats(movieImg, title, release_date, dummyPrice = '3000') {
     book.addEventListener('click', () => {
       ticketContainer.classList.add('active');
       payoutBtn.classList.remove('active');
-      // overlayseats.classList.remove('hidden');
+      overlayseats.classList.remove('hidden');
 
       bookingTickets(
         totalSeats,
@@ -124,16 +126,27 @@ function renderSeats(movieImg, title, release_date, dummyPrice = '3000') {
     bookingButtonTotal.textContent = totalBookingAmountPayable;
   }
 
-  // selected items
-  contianer.addEventListener('click', (e) => {
+  onClickcAddSeats = function (e) {
     if (
       e.target.classList.contains('seat') &&
       !e.target.classList.contains('unavailable')
     ) {
       e.target.classList.toggle('selected');
       payoutBtn.classList.add('active');
+      console.log('yes');
       updateCountTotal(); //function call
     }
+    contianer.setAttribute('listener', 'true');
+  };
+  // selected items
+  contianer.addEventListener('click', onClickcAddSeats);
+
+  const ticketOverlayClose = document.querySelector('.ticket__close-svg');
+  // overlay deactive
+  ticketOverlayClose.addEventListener('click', function (e) {
+    overlayseats.classList.add('hidden');
+    payoutBtn.classList.add('active');
+    ticketContainer.classList.remove('active');
   });
 }
 
@@ -147,3 +160,5 @@ function addtwo() {
   bookingAmountPayable.textContent = totalBookingAmountPayable;
   bookingButtonTotal.textContent = totalBookingAmountPayable;
 }
+
+// contianer.removeEventListener('click', onSeatClick);

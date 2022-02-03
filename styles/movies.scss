@@ -39,7 +39,7 @@ body {
   transform: translateY(0) scale(1);
 
   display: block;
-  animation: scaleAnim 400ms ease-in-out;
+  animation: scaleAnim 400ms ease-in;
   @keyframes scaleAnim {
     0% {
       transform: translateY(100%) scale(0.2, 0.2);
@@ -145,7 +145,7 @@ a:link {
 /* Movies Front container  */
 /* ------------------------ */
 .movie-front {
-  transition: 250ms;
+  transition: transform 250ms;
   .thumbnail {
     border-radius: var(--br);
     position: relative;
