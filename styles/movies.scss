@@ -363,6 +363,37 @@ a:link {
   }
 }
 
+/* ------------------------ */
+/* search bar  */
+/* ------------------------ */
+
+.movie__search-form {
+  display: flex;
+  justify-content: end;
+  margin: 2rem 7rem 0 0;
+  .search {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    border-radius: 50px;
+    background-color: transparent;
+    border: 2px solid #5e2699;
+    padding: 0.5rem 1rem;
+    color: #fff;
+  }
+
+  .search::placeholder {
+    color: #555;
+  }
+
+  .search:focus {
+    outline: none;
+    background-color: var();
+  }
+}
+
+/* ------------------------ */
+/* overlay animation  */
+/* ------------------------ */
 #overlay-effect {
   transform: translateY(100%);
   animation: 1s ease-in-out both;

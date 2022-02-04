@@ -24,11 +24,12 @@ const addMoviestoDom = function () {
   const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=697a7d177fc38d7f49f014df954ecffa&primary_release_date.gtecl=${fromDate}&primary_release_date.lte=${currdate}`;
   const perPendImg = 'https://image.tmdb.org/t/p/w1280';
   const SEARCH_API =
-    'https://api.themoviedb.org/3/search/movie?api_key=697a7d177fc38d7f49f014df954ecffa&query="';
+    'https://api.themoviedb.org/3/search/movie?api_key=697a7d177fc38d7f49f014df954ecffa&query=';
 
   // popularity percentage
   const circle = document.querySelector('.progress-circle');
-  const circumference = circle.getTotalLength();
+  // const circumference = circle.getTotalLength();
+  const circumference = 124.85393524169922;
   const calProgress = function (rating) {
     return circumference - (rating / 100) * circumference;
   };
@@ -161,6 +162,20 @@ const addMoviestoDom = function () {
   };
 
   fetchMovies(API_URL);
+
+  // search movies
+  const form = document.getElementById('form');
+  const search = document.getElementById('search');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const searchTerm = search.value;
+    moviesContainer.removeEventListener('click', goToseats);
+    if (searchTerm === '') fetchMovies(API_URL);
+    // contianer.removeEventListener('click', onClickcAddSeats);
+    else {
+      fetchMovies(SEARCH_API + searchTerm);
+    }
+  });
 };
 
 // addMoviestoDom();

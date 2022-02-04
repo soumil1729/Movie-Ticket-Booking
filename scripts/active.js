@@ -50,6 +50,7 @@ const goBack = () => {
   // moviesContainer.removeEventListener('click', goToseats);
   ticketContainer.classList.remove('active');
   overlayseats.classList.add('hidden');
+  checkboxDonation.checked = false;
   overlayDown();
 };
 const bookingBtn = document.getElementById('booking-button');

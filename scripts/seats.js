@@ -133,7 +133,6 @@ function renderSeats(movieImg, title, release_date, dummyPrice = '3000') {
     ) {
       e.target.classList.toggle('selected');
       payoutBtn.classList.add('active');
-      console.log('yes');
       updateCountTotal(); //function call
     }
     contianer.setAttribute('listener', 'true');

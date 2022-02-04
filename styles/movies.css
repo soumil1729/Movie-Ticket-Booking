@@ -441,6 +441,53 @@ a:link {
   }
 }
 
+/* ------------------------ */
+/* search bar  */
+/* ------------------------ */
+.movie__search-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin: 2rem 7rem 0 0;
+}
+
+.movie__search-form .search {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 2px solid #5e2699;
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+
+.movie__search-form .search::-webkit-input-placeholder {
+  color: #555;
+}
+
+.movie__search-form .search:-ms-input-placeholder {
+  color: #555;
+}
+
+.movie__search-form .search::-ms-input-placeholder {
+  color: #555;
+}
+
+.movie__search-form .search::placeholder {
+  color: #555;
+}
+
+.movie__search-form .search:focus {
+  outline: none;
+  background-color: var();
+}
+
+/* ------------------------ */
+/* overlay animation  */
+/* ------------------------ */
 #overlay-effect {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
