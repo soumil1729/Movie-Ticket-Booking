@@ -15,13 +15,15 @@ const addMoviestoDom = function () {
   //0 index so
   month = month + 1;
   month = month > 9 ? month : '0' + month;
+  day = day > 9 ? day : '0' + day;
   const fromDate = `${year}-${+month > 1 ? '0' + (+month - 1) : month}-${
     '0' + 1
   }`;
 
-  const currdate = `${year}-${month}-${'0' + day}`;
+  const currdate = `${year}-${month}-${day}`;
 
   const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=697a7d177fc38d7f49f014df954ecffa&primary_release_date.gtecl=${fromDate}&primary_release_date.lte=${currdate}`;
+
   const perPendImg = 'https://image.tmdb.org/t/p/w1280';
   const SEARCH_API =
     'https://api.themoviedb.org/3/search/movie?api_key=697a7d177fc38d7f49f014df954ecffa&query=';
